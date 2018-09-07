@@ -1,0 +1,32 @@
+#mainContent {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: xx-large;
+	font-weight: bold;
+	background-color: #2e2e2e;
+	border-radius: 360px;
+	padding: 720px;
+	text-align: center;
+}
+.buttonStyle {
+	border-radius: 30px;
+	border: thin solid #1c1c1c;
+	padding: 245px;
+	background-color: #575757;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	font-weight: bold;
+	color: #000000;
+	width: 200px;
+}
+
+.buttonStyle:hover {
+	border: thin solid #141414;
+	background-color: #3c3c3c;
+	color: #000000;
+	cursor: pointer;
+}
+.buttonStyle:active {
+	border: thin solid #0a0a0a;
+	background-color: #282828;
+	color: #000000;
+	cursor: pointer;
+}
