@@ -1,6 +1,7 @@
-h3 .death {
+h3 {
     text-align: left;
     font-weight: 900;
+    font-style: oblique;
 }
 header {
     background-color: rgb(255, 255, 255)
