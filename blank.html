@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<head>
+<body>
+    
+    <!--"This is where the stuff on the page is"-->
+    <button id="buttontxt" type="button" onclick=clkme()>Click Me</button>
+    <p id="ptext">This is about to change</p>
+    <button type="button" onclick=clkme2()>Reset</button>
+    <button type="button" onclick=clkme3()>6 + 0</button>
+    <p id="hecctxt">Answer is:</p>
+    <p id="name">Stuff</p>
+    <img id="picture" src="/mobiledoggo.jpg" width="600px" height="600px">
+    <br>
+    <button type="button" id="hecc" onclick=clkme4()>Catto</button>
+    <button id = "No u" type="button" onclick=NewFunction()>Click me</button>
+        <button id="showImg" type="button" onclick=showImg()>Hide Image</button>
+        <button id="hideImg" type="button" onclick=hideImg()></button>
+<!--"This is where the Javascrpit Code goes"-->
+        <script>
+        var state = "doggo"
+        var pic = document.getElementById("picture")
+        function showIng(){
+            pic.style.display = "none"
+        }
+        function hideImg(){
+            pic.style.display = "block"
+        }
+        
+        
+        
+        
+        
+        
+        
+        function NewFunction(){
+            var button = document.createElement("button");
+            var buttonText = document.createTextNode("Yes");
+            button.appendChild(buttonText);
+            button.setAttribute("type", "button");
+            button.setAttribute("onclick", "NewFunction()");
+            document.body.appendChild(button);
+        }
+            
+        
+        function clkme4(){
+            
+            var but = document.getElementById("hecc");
+
+            if (state == "Doggo"){
+                pic.src = "/agraycatcryinglookingupset.jpg";
+                but.innerHTML = "Chicco";
+                state = "Catto";
+            }
+            else if (state == "Catto"){
+                pic.src = "/chicco.jpg";
+                but.innerHTML = "Axolotl";
+                state = "Chicco";
+            }
+            else if (state == "Chicco"){
+                pic.src = "/Axolotl.jpg";
+                but.innerHTML = "Doggo";
+                state = "Fisho";
+            }
+            else {
+                pic.src = "/mobiledoggo.jpg";
+                but.innerHTML = "Catto";
+                state = "Doggo";
+            }
+            var button2 = document.createElement("button");
+            var buttontxt = document.createTextNode("Here Come Dat Boi");
+            button2.appendChild(buttontxt);
+            document.body.appendChild(button2);
+            button2.setAttribute("onclick", clkme4())
+            button2.setAttribute("id", "HeccBoi69")
+        }
+        
+        function clkme(){
+            var ptext = document.getElementById('ptext');
+            var buttontxt = document.getElementById('buttontxt');
+        buttontxt.innerHTML = 'Do not do it again';
+        ptext.innerHTML = 'Monkey';
+        ptext.style.fontSize ='32px';
+        ptext.style.fontWeight ='900';
+        ptext.style.color ='rgb(255,159,203)';
+        }
+        function clkme2(){
+        var z = "$$" + " " + "Lol" + " " + "get" + " " + "fuked";
+        var ptext = document.getElementById('ptext');
+        ptext.innerHTML = 'This is about to change';
+        ptext.style.fontSize ='16px';
+        ptext.style.fontWeight ='100';
+        ptext.style.color ='rgb(0,0,0)';
+        alert("A" + z);
+        }
+        function clkme3(){
+            var hecctxt = document.getElementById('hecctxt');
+            var a = 6;
+            var b = 0;
+            var c = a + b;
+            hecctxt.innerHTML = c;
+            hecctxt.style.color ='rgb(255,0,0)';
+        }
+            var w = 4;
+            if (w > 6){
+                 document.getElementById('name').innerHTML = "Hello";
+            }
+            else {
+                document.getElementById('name').innerHTML = "Bi";
+            }
+    </script>
+</body>
+</head>
