@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="style.css">
+<title>Jonathan Pellior's Portfolio</title>
+<html lang="en-us">
+    <head>
+
+        <style>
+            body{
+                overflow: hidden;
+                /*background: rgb(0, 0, 0);*/
+            }
+            #LeftPane{
+                float: left;
+                width: 43%;
+                height: 100%;
+            }
+            #RightPane{
+                display: inline-block;
+                width: 55%;
+                height: 100%;
+                bottom: 0px;
+            }
+            #StoryCont{
+                width: 100%;
+                height:90%;
+            }
+            #ButtonsCont{
+                position: absolute;
+                bottom: 20px;
+                width: 100%;
+            }
+            .Yes {
+                margin: 40px;
+            }
+            #picture {
+                max-height: 100%;
+                max-width: 100%;
+            }
+            img {
+                opacity: 0;
+                filter: alpha(opacity=50);
+            }
+            img:hover {
+                opacity: 1.0;
+                filter: alpha(opacity=100);
+            }
+            #h1 {
+                color: rgb(255, 255, 255);
+                background-color: rgb(0, 0, 0);
+            }
+        </style>
+    </head>
+    <body>
+        <h3 class="col-sm-3 pull-left death">Jonathan Pellior</h3>
+        <ul class="nav nav-pills pull-right">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav link active" href="aboutme.html">About Me</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="resume.html">Resume</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="projects.html">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="contactme.html">Contact Me</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="JavaTxtAdventure.html">Text Adventure</a>
+          </li>
+        </ul>
+        <br>
+        <br>
+        <br>
+        <div id="container">
+            <div id="LeftPane">
+                <img id="picture" src="/mobiledoggo.jpg" alt="A cool Dragon Image">
+            </div>
+            <div id="RightPane">
+                <div id="StoryCont">
+                    <h1>A Harrowing Tale of Heros</h1>
+                    <p>===============================</p>
+                    <p id="Money"></p>
+                    <p>Inventory:</p>
+                    <p id="Inv">None</p>
+                    <p>===============================</p>
+                    <p id="Story"></p>
+                </div>
+                <div id="ButtonsCont">
+                    <button class= "Yes" type="button" id="option1" onclick=stateCall1()>Press Any</button>
+                    <button class= "Yes" type="button" id="option2" onclick=stateCall2()>Press Any</button>
+                    <button class= "Yes" type="button" id="option3" onclick=stateCall3()>Press Any</button>
+                    <button class= "Yes" type="button" id="attackList" onclick=attackPrint>Press Any</button>
+                </div>
+            </div>
+        </div>
+        <script>
+            var option1ToF = 0;
+            var option2ToF = 0;
+            var option3ToF = 0;
+            var MoneyTxt = document.getElementById("Money");
+            var InvTxt = document.getElementById("Inv");
+            var o1Txt = document.getElementById("option1");
+            var o2Txt = document.getElementById("option2");
+            var o3Txt = document.getElementById("option3");
+            var AttackTxt = document.getElementById("attackList");
+            var stage = "intro";
+            var copper = 30;
+            var silver = 0;
+            var gold = 0;
+            var inventory1 = "";
+            var inventory2 = "";
+            var inventory3 = "";
+            var inventory4 = "";
+            var PEleText = document.getElementById("Story");
+            MoneyTxt.innerHTML = copper + "cp " + silver + "sp " + gold + "gp";
+            AttackTxt.style.display = "none";
+            function inventoryPrint() {
+                var inv = inventory1 + inventory2 + inventory3 + inventory4;
+                InvTxt.innerHTML = inv;
+                inventoryPrint();
+            }
+            function attackPrint() {
+                
+            }
+            //This is the Money Print function, in which it will calculate your money, and print if you go into debt
+            function moneyPrint() {
+                var money = copper + "cp " + silver + "sp " + gold + "gp";
+                MoneyTxt.innerHTML = money;
+            }
+            //This is to check, and make sure the user chose an option, and if so, in the future, the responses can be recorded with these variables
+            //function clk1() {
+                //option1ToF = 1;
+                //directory();
+            //}
+            //function clk2() {
+                //option2ToF = 1;
+                //directory();
+            //}
+            //function clk3() {
+                //option3ToF = 1;
+                //directory();
+            //}
+            //This is to loot out any errors, and make sure the user picked a viable option.
+            //function directory() {
+                //if (option1ToF == 1) {
+                    //option1ToF = 0;
+                    //stateCall1();
+                //}
+                //else if (option2ToF == 1) {
+                    //option2ToF = 0;
+                    //stateCall2();
+                //}
+                //else if (option3ToF == 1) {
+                    //option3ToF = 0;
+                    //stateCall3();
+                //}
+                //else {
+                    //quit();
+                    //if (stage == 0) {
+                        //clk1();
+                        //clk2();
+                        //clk3();
+                    //}
+                //}
+            //}
+            //These are all the possible options for option 1 being picked.
+            function stateCall1() {
+                if (stage == "intro") {
+                    intro();
+                }
+                else if (stage == "FC") {
+                    o1();
+                }
+                else if (stage == "o1") {
+                    o1o1();
+                }
+                else if (stage == "o2") {
+                    o2o1();
+                }
+                else if (stage == "o3") {
+                    o3o1();
+                }
+                else if (stage == "o1o1") {
+                    o1o1o1();
+                }
+                else if (stage == "o1o2") {
+                    o1o2o1();
+                }
+                else if (stage == "o1o3") {
+                    o1o3o1();
+                }
+                else if (stage == "o2o1") {
+                    o2o1o1();
+                }
+                else if (stage == "o2o2") {
+                    o2o2o1();
+                }
+                else if (stage == "o2o3") {
+                    o2o3o1();
+                }
+                else if (stage == "o3o1") {
+                    o3o1o1();
+                }
+                else if (stage == "o3o2") {
+                    o3o2o1();
+                }
+                else if (stage == "o3o3") {
+                    o3o3o1();
+                }
+                else {
+                    quit();
+                }
+            }
+            //These are all the possible options for option 2 being picked.
+            function stateCall2() {
+                if (stage == "intro") {
+                    intro();
+                }
+                else if (stage == "FC") {
+                    o2();
+                }
+                else if (stage == "o1") {
+                    o1o2();
+                }
+                else if (stage == "o2") {
+                    o2o2();
+                }
+                else if (stage == "o3") {
+                    o3o2();
+                }
+                else if (stage == "o1o1") {
+                    o1o1o2();
+                }
+                else if (stage == "o1o2") {
+                    o1o2o2();
+                }
+                else if (stage == "o1o3") {
+                    o1o3o2();
+                }
+                else if (stage == "o2o1") {
+                    o2o1o2();
+                }
+                else if (stage == "o2o2") {
+                    o2o2o2();
+                }
+                else if (stage == "o2o3") {
+                    o2o3o2();
+                }
+                else if (stage == "o3o1") {
+                    o3o1o2();
+                }
+                else if (stage == "o3o2") {
+                    o3o2o2();
+                }
+                else if (stage == "o3o3") {
+                    o3o3o2();
+                }
+                else {
+                    quit();
+                }
+            }
+            //These are all the possible options for option 3 being picked.
+            function stateCall3() {
+                if (stage == "intro") {
+                    intro();
+                }
+                else if (stage == "FC") {
+                    o3();
+                }
+                else if (stage == "o1") {
+                    o1o3();
+                }
+                else if (stage == "o2") {
+                    o2o3();
+                }
+                else if (stage == "o3") {
+                    o3o3();
+                }
+                else if (stage == "o1o1") {
+                    o1o1o3();
+                }
+                else if (stage == "o1o2") {
+                    o1o2o3();
+                }
+                else if (stage == "o1o3") {
+                    o1o3o3();
+                }
+                else if (stage == "o2o1") {
+                    o2o1o3();
+                }
+                else if (stage == "o2o2") {
+                    o2o2o3();
+                }
+                else if (stage == "o2o3") {
+                    o2o3o3();
+                }
+                else if (stage == "o3o1") {
+                    o3o1o3();
+                }
+                else if (stage == "o3o2") {
+                    o3o2o3();
+                }
+                else if (stage == "o3o3") {
+                    o3o3o3();
+                }
+                else {
+                    quit();
+                }
+            }
+            //These are the functions that get called through the directory
+            function quit() {
+                PEleText.innerHTML = "Error, Restarting...";
+                PEleText.innerHTML = "A tall man coated in scales with a snout on his face, scarred by the years, but not without a warm smile, walked the streets of Circuit Lake Town.  His metal peg-leg was scraping with each step on the cobbled streets.  It was about evening, and there was a slight drizzle of rainfall.  You, Rel Gerken XIV walk proudly down to the Inn with a sign saying: 'Circuit Lake Inn.'  You walk in, and are greeted with a jolly bard finishing up his final act, and a bar with many drinking the locally made brew.";
+                o1Txt.innerHTML = "Press Any";
+                o2Txt.innerHTML = "Press Any";
+                o3Txt.innerHTML = "Press Any";
+                stage = "intro";
+            }
+            function intro() {
+                PEleText.innerHTML = "A tall man coated in scales with a snout on his face, scarred by the years, but not without a warm smile, walked the streets of Circuit Lake Town.  His metal peg-leg was scraping with each step on the cobbled streets.  It was about evening, and there was a slight drizzle of rainfall.  You, Rel Gerken XIV walk proudly down to the Inn with a sign saying: 'Circuit Lake Inn.'  You walk in, and are greeted with a jolly bard finishing up his final act, and a bar with many drinking the locally made brew.";
+                o1Txt.innerHTML = "Table & Drink";
+                o2Txt.innerHTML = "Bar & Drink";
+                o3Txt.innerHTML = "Bar & Meal";
+                stage = "FC";
+            }
+            function o1() {
+                PEleText.innerHTML = "You take a seat at one of the tables near the back of the inn, and you order a drink.  You're seated in the perfect spot to watch the bard finish his act.  After he finished, he accepted donations, and walked offstage.  You remember the times you once did the same as he.";
+                o1Txt.innerHTML = "Give 10cp";
+                o2Txt.innerHTML = "Perform";
+                o3Txt.innerHTML = "Drink";
+                stage == "o1";
+            }
+            function o2() {
+                PEleText.innerHTML = "You sit at the bar and ask for a drink.  You order a few more.  You start feeling tired, and you slip into a deep sleep.";
+                o1Txt.innerHTML = "Awaken";
+                o2Txt.innerHTML = "Drink";
+                o3Txt.innerHTML = "Sleep";
+                stage == "o2";
+            }
+            function o3() {
+                PEleText.innerHTML = "You walk to the bar, and order a nice meal for 5cp.  You notice a man walk into the bar, and take a seat next to you.  He orders a drink, and passes the bartender 1 silver piece.";
+                var payment = 5;
+                copper = copper - payment;
+                o1Txt.innerHTML = "Tell Story";
+                o2Txt.innerHTML = "Hear Story";
+                o3Txt.innerHTML = "Buy a Room";
+                stage == "o3";
+                moneyPrint();
+            }
+            function o1o1() {
+                PEleText.innerHTML = "You go up to the Bard and hand him 10cp, which he graciously accepts.  He offers to buy you a room for the night.";
+                var payment2 = 10;
+                copper = copper - payment2;
+                o1Txt.innerHTML = "Accept";
+                o2Txt.innerHTML = "Decline";
+                o3Txt.innerHTML = "Return the Offer";
+                stage == "o1o1";
+                moneyPrint();
+            }
+            function o1o2() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage == "o1o2";
+            }
+            function o1o3() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage == "o1o3";
+            }
+            function o2o1() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage == "o2o1";
+            }
+            function o2o2() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage == "o2o2";
+            }
+            function o2o3() {
+                PEleText.innerHTML = "You continue sleeping, and soon you feel compelled to awaken.  You wae, and you hear a man screaming, as he gets dragged out the front of the bar.";
+                o1Txt.innerHTML = "Order a Room";
+                o2Txt.innerHTML = "Drink";
+                o3Txt.innerHTML = "Follow";
+                stage == "o2o3";
+            }
+            function o3o1() {
+                PEleText.innerHTML = "You listen to the man's story, as he tells you about his travels across the lands.  You remember the times in your youth, when you and a band of fellow adventurers sailed the dead seas.";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage == "o3o1";
+            }
+            function o3o2() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage == "o3o2";
+            }
+            function o3o3() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage == "o3o3";
+            }
+            function o1o1o1() {
+                PEleText.innerHTML = "You graciously accept the offer from the bard, and he orders you a room, under his name.  You shake his hand and ask his name.  He says: 'My name is Ferdinand.  That's all you need to know.";
+                o1Txt.innerHTML = "Head to Room";
+                o2Txt.innerHTML = "Return the Favor";
+                o3Txt.innerHTML = "Go to the Bathhouse";
+                stage == "o1o1o1";
+            }
+            function o1o2o1() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage == "o1o2o1";
+            }
+            function o1o3o1() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage == "o1o3o1";
+            }
+            function o2o1o1() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage == "o2o1o1";
+            }
+            function o2o2o1() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage == "o2o2o1";
+            }
+            function o2o3o1() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage == "o2o3o1";
+            }
+            function o3o1o1() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage == "o3o1o1";
+            }
+            function o3o2o1() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage == "o3o2o1";
+            }
+            function o3o3o1() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage == "o3o3o1";
+            }
+            function o1o1o2() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage == "o1o1o2";
+            }
+            function o1o2o2() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage == "o1o2o2";
+            }
+            function o1o3o2() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage == "o1o3o2";
+            }
+            function o2o1o2() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage == "o2o1o2";
+            }
+            function o2o2o2() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage == "o2o2o2";
+            }
+            function o2o3o2() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage == "o2o3o2";
+            }
+            function o3o1o2() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage == "o3o1o2";
+            }
+            function o3o2o2() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage == "o3o2o2";
+            }
+            function o3o3o2() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage == "o3o3o2";
+            }
+            function o1o1o3() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage == "o1o1o3";
+            }
+            function o1o2o3() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage == "o1o2o3";
+            }
+            function o1o3o3() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage == "o1o3o3";
+            }
+            function o2o1o3() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage == "o2o1o3";
+            }
+            function o2o2o3() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage == "o2o2o3";
+            }
+            function o2o3o3() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage == "o2o3o3";
+            }
+            function o3o1o3() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage == "o3o1o3";
+            }
+            function o3o2o3() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage == "o3o2o3";
+            }
+            function o3o3o3() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage == "o3o3o3";
+            }
+        </script>
+    </body>
+</html>
