@@ -112,7 +112,7 @@
             var copper = 30;
             var silver = 0;
             var gold = 0;
-            var inventory1 = "";
+            var inventory1 = "Knife, ";
             var inventory2 = "";
             var inventory3 = "";
             var inventory4 = "";
@@ -150,6 +150,8 @@
                     MoneyTxt.innerHTML = money;
                 }
             }
+            moneyPrint();
+            inventoryPrint();
             //This is to check, and make sure the user chose an option, and if so, in the future, the responses can be recorded with these variables
             //function clk1() {
                 //option1ToF = 1;
@@ -287,10 +289,10 @@
                 stage = "o2o3";
             }
             function o3o1() {
-                PEleText.innerHTML = "";
-                o1Txt.innerHTML = "";
-                o2Txt.innerHTML = "";
-                o3Txt.innerHTML = "";
+                PEleText.innerHTML = "You strike up a conversation with him, and find his name is Drew Amblecrown.  You start telling him of one of your grand tales about sailing the dead-ridden seas, and through the highest tides of the Elinian Ocean.  After acquainting yourselves, you notice a loud noise as two people walk into the inn.  They were two soldiers clad in full plate armor, with the royal insignia.  They walk to a man in the corner, of whom is in a hooded black cloak, and they pull down his hood, revealing a wrinkled face of someone who hasn't slept in months.  They grab the man by the arms, and drag him as he screams things such as: 'The Master burn you to hell!'  They go out the door, and you hear the shouting slowly fade.  The sound of a man being dragged through the mud faded with it.";
+                o1Txt.innerHTML = "Follow";
+                o2Txt.innerHTML = "Disregard";
+                o3Txt.innerHTML = "Buy a Room";
                 stage = "o3o1";
             }
             function o3o2() {
@@ -308,7 +310,7 @@
                 stage = "o3o3";
             }
             function o1o1o1() {
-                PEleText.innerHTML = "You graciously accept the offer from the bard, and he orders you a room, under his name.  You shake his hand and ask his name.  He says: 'My name is Ferdinand.  That's all you need to know.";
+                PEleText.innerHTML = "You graciously accept the offer from the bard, and he orders you a room, under his name.  You shake his hand and ask his name.  He says: 'My name is Ferdinand.  That's all you need to know.'";
                 o1Txt.innerHTML = "Head to Room";
                 o2Txt.innerHTML = "Return the Favor";
                 o3Txt.innerHTML = "Go to the Bathhouse";
@@ -343,10 +345,10 @@
                 stage = "o2o3o1";
             }
             function o3o1o1() {
-                PEleText.innerHTML = "";
-                o1Txt.innerHTML = "";
-                o2Txt.innerHTML = "";
-                o3Txt.innerHTML = "";
+                PEleText.innerHTML = "You start to make your way out the door, in pursuit of the man being dragged, and Drew stops you.  He states he wants to go with you.  The two of you head out the door into the streets of mud, and you follow the swaying light of the lantern of one of the soldier's waists.  They go to the city jail/city hall (Which were combined, City Hall in front, Jail in the back).  And they head through the back door.  How do you follow?";
+                o1Txt.innerHTML = "Front Door";
+                o2Txt.innerHTML = "Back Door";
+                o3Txt.innerHTML = "Window";
                 stage = "o3o1o1";
             }
             function o3o2o1() {
@@ -358,9 +360,9 @@
             }
             function o3o3o1() {
                 PEleText.innerHTML = "You go to bed, and your breathing slows.  Soon, you are asleep, and dream of better times.  During the night, loud crashes of alarm bells tolling wake you.";
-                o1Txt.innerHTML = "";
-                o2Txt.innerHTML = "";
-                o3Txt.innerHTML = "";
+                o1Txt.innerHTML = "Investigate";
+                o2Txt.innerHTML = "Ignore";
+                o3Txt.innerHTML = "Go Downstairs";
                 stage = "o3o3o1";
             }
             function o1o1o2() {
@@ -475,6 +477,490 @@
                 o3Txt.innerHTML = "";
                 stage = "o3o3o3";
             }
+            function o1o1o1o1() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o1o1o1o1";
+            }
+            function o1o1o2o1() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o1o1o2o1";
+            }
+            function o1o1o3o1() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o1o1o3o1";
+            }
+            function o1o2o1o1() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o1o2o1o1";
+            }
+            function o1o2o2o1() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o1o2o2o1";
+            }
+            function o1o2o3o1() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o1o2o3o1";
+            }
+            function o1o3o1o1() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o1o3o1o1";
+            }
+            function o1o3o3o1() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o1o3o3o1";
+            }
+            function o2o1o1o1() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o2o1o1o1";
+            }
+            function o2o1o2o1() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o2o1o2o1";
+            }
+            function o2o1o3o1() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o2o1o3o1";
+            }
+            function o2o3o1o1() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o2o3o1o1";
+            }
+            function o2o3o2o1() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o2o3o2o1";
+            }
+            function o2o3o3o1() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o2o3o3o1";
+            }
+            function o3o1o1o1() {
+                PEleText.innerHTML = "You go to the front door, and as you walk in, two guards halt you, and say: 'I'm sorry gentlemen, but what is taking place here is not allowed to be seen by the public.  We're going to have to take you to the cells.'  They each grab one of you, and throw you in seperate cells, after taking your items.  You are left in there for weeks, Drew died of starvation 3 days ago, and you feel no desire to live, and you plunge your claws into your chest ripping out your own heart.";
+                o1Txt.innerHTML = "You Died";
+                o2Txt.innerHTML = "You Died";
+                o3Txt.innerHTML = "You Died";
+                stage = "o3o1o1o1";
+            }
+            function o3o1o2o1() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o3o1o2o1";
+            }
+            function o3o1o3o1() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o3o1o3o1";
+            }
+            function o3o2o1o1() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o3o2o1o1";
+            }
+            function o3o2o2o1() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o3o2o2o1";
+            }
+            function o3o2o3o1() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o3o2o3o1";
+            }
+            function o3o3o1o1() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o3o3o1o1";
+            }
+            function o3o3o2o1() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o3o3o2o1";
+            }
+            function o3o3o3o1() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o3o3o3o1";
+            }
+            function o1o1o1o2() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o1o1o1o2";
+            }
+            function o1o1o2o2() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o1o1o2o2";
+            }
+            function o1o1o3o2() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o1o1o3o2";
+            }
+            function o1o2o1o2() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o1o2o1o2";
+            }
+            function o1o2o2o2() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o1o2o2o2";
+            }
+            function o1o2o3o2() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o1o2o3o2";
+            }
+            function o1o3o1o2() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o1o3o1o2";
+            }
+            function o1o3o3o2() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o1o3o3o2";
+            }
+            function o2o1o1o2() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o2o1o1o2";
+            }
+            function o2o1o2o2() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o2o1o2o2";
+            }
+            function o2o1o3o2() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o2o1o3o2";
+            }
+            function o2o3o1o2() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o2o3o1o2";
+            }
+            function o2o3o2o2() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o2o3o2o2";
+            }
+            function o2o3o3o2() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o2o3o3o2";
+            }
+            function o3o1o1o2() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o3o1o1o2";
+            }
+            function o3o1o2o2() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o3o1o2o2";
+            }
+            function o3o1o3o2() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o3o1o3o2";
+            }
+            function o3o2o1o2() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o3o2o1o2";
+            }
+            function o3o2o2o2() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o3o2o2o2";
+            }
+            function o3o2o3o2() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o3o2o3o2";
+            }
+            function o3o3o1o2() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o3o3o1o1";
+            }
+            function o3o3o2o2() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o3o3o2o1";
+            }
+            function o3o3o3o2() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o3o3o3o1";
+            }
+            function o1o1o1o3() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o1o1o1o3";
+            }
+            function o1o1o2o3() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o1o1o2o3";
+            }
+            function o1o1o3o3() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o1o1o3o3";
+            }
+            function o1o2o1o3() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o1o2o1o3";
+            }
+            function o1o2o2o3() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o1o2o2o3";
+            }
+            function o1o2o3o3() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o1o2o3o3";
+            }
+            function o1o3o1o3() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o1o3o1o3";
+            }
+            function o1o3o3o3() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o1o3o3o3";
+            }
+            function o2o1o1o3() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o2o1o1o3";
+            }
+            function o2o1o2o3() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o2o1o2o3";
+            }
+            function o2o1o3o3() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o2o1o3o3";
+            }
+            function o2o3o1o3() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o2o3o1o3";
+            }
+            function o2o3o2o3() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o2o3o2o3";
+            }
+            function o2o3o3o3() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o2o3o3o3";
+            }
+            function o3o1o1o3() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o3o1o1o3";
+            }
+            function o3o1o2o3() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o3o1o2o3";
+            }
+            function o3o1o3o3() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o3o1o3o3";
+            }
+            function o3o2o1o3() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o3o2o1o3";
+            }
+            function o3o2o2o3() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o3o2o2o3";
+            }
+            function o3o2o3o3() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o3o2o3o3";
+            }
+            function o3o3o1o3() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o3o3o1o3";
+            }
+            function o3o3o2o3() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o3o3o2o3";
+            }
+            function o3o3o3o3() {
+                PEleText.innerHTML = "";
+                o1Txt.innerHTML = "";
+                o2Txt.innerHTML = "";
+                o3Txt.innerHTML = "";
+                stage = "o3o3o3o3";
+            }
+            
             //These are all the possible options for option 1 being picked.
             function stateCall1() {
                 if (stage == "intro") {
@@ -519,8 +1005,77 @@
                 else if (stage == "o3o3") {
                     o3o3o1();
                 }
+                else if (stage == "o1o1o1") {
+                    o1o1o1o1();
+                }
+                else if (stage == "o1o1o2") {
+                    o1o1o2o1();
+                }
+                else if (stage == "o1o1o3") {
+                    o1o1o3o1();
+                }
+                else if (stage == "o1o2o1") {
+                    o1o2o1o1();
+                }
+                else if (stage == "o1o2o2") {
+                    o1o2o2o1();
+                }
+                else if (stage == "o1o2o3") {
+                    o1o2o3o1();
+                }
+                else if (stage == "o1o3o1") {
+                    o1o3o1o1();
+                }
                 else if (stage == "o1o3o2") {
                     drink();
+                }
+                else if (stage == "o1o3o3") {
+                    o1o3o3o1();
+                }
+                else if (stage == "o2o1o1") {
+                    o2o1o1o1();
+                }
+                else if (stage == "o2o1o2") {
+                    o2o1o2o1();
+                }
+                else if (stage == "o2o1o3") {
+                    o2o1o3o1();
+                }
+                else if (stage == "o2o3o1") {
+                    o2o3o1o1();
+                }
+                else if (stage == "o2o3o2") {
+                    o2o3o2o1();
+                }
+                else if (stage == "o2o3o3") {
+                    o2o3o3o1();
+                }
+                else if (stage == "o3o1o1") {
+                    o3o1o1o1();
+                }
+                else if (stage == "o3o1o2") {
+                    o3o1o2o1();
+                }
+                else if (stage == "o3o1o3") {
+                    o3o1o3o1();
+                }
+                else if (stage == "o3o2o1") {
+                    o3o2o1o1();
+                }
+                else if (stage == "o3o2o2") {
+                    o3o2o2o1();
+                }
+                else if (stage == "o3o2o3") {
+                    o3o2o3o1();
+                }
+                else if (stage == "o3o3o1") {
+                    o3o3o1o1();
+                }
+                else if (stage == "o3o3o2") {
+                    o3o3o2o1();
+                }
+                else if (stage == "o3o3o3") {
+                    o3o3o3o1();
                 }
                 else {
                     quit();
@@ -570,8 +1125,77 @@
                 else if (stage == "o3o3") {
                     o3o3o2();
                 }
+                else if (stage == "o1o1o1") {
+                    o1o1o1o2();
+                }
+                else if (stage == "o1o1o2") {
+                    o1o1o2o2();
+                }
+                else if (stage == "o1o1o3") {
+                    o1o1o3o2();
+                }
+                else if (stage == "o1o2o1") {
+                    o1o2o1o2();
+                }
+                else if (stage == "o1o2o2") {
+                    o1o2o2o2();
+                }
+                else if (stage == "o1o2o3") {
+                    o1o2o3o2();
+                }
+                else if (stage == "o1o3o1") {
+                    o1o3o1o2();
+                }
                 else if (stage == "o1o3o2") {
                     drink();
+                }
+                else if (stage == "o1o3o3") {
+                    o1o3o3o2();
+                }
+                else if (stage == "o2o1o1") {
+                    o2o1o1o2();
+                }
+                else if (stage == "o2o1o2") {
+                    o2o1o2o2();
+                }
+                else if (stage == "o2o1o3") {
+                    o2o1o3o2();
+                }
+                else if (stage == "o2o3o1") {
+                    o2o3o1o2();
+                }
+                else if (stage == "o2o3o2") {
+                    o2o3o2o2();
+                }
+                else if (stage == "o2o3o3") {
+                    o2o3o3o2();
+                }
+                else if (stage == "o3o1o1") {
+                    o3o1o1o2();
+                }
+                else if (stage == "o3o1o2") {
+                    o3o1o2o2();
+                }
+                else if (stage == "o3o1o3") {
+                    o3o1o3o2();
+                }
+                else if (stage == "o3o2o1") {
+                    o3o2o1o2();
+                }
+                else if (stage == "o3o2o2") {
+                    o3o2o2o2();
+                }
+                else if (stage == "o3o2o3") {
+                    o3o2o3o2();
+                }
+                else if (stage == "o3o3o1") {
+                    o3o3o1o2();
+                }
+                else if (stage == "o3o3o2") {
+                    o3o3o2o2();
+                }
+                else if (stage == "o3o3o3") {
+                    o3o3o3o2();
                 }
                 else {
                     quit();
@@ -621,8 +1245,77 @@
                 else if (stage == "o3o3") {
                     o3o3o3();
                 }
+                else if (stage == "o1o1o1") {
+                    o1o1o1o3();
+                }
+                else if (stage == "o1o1o2") {
+                    o1o1o2o3();
+                }
+                else if (stage == "o1o1o3") {
+                    o1o1o3o3();
+                }
+                else if (stage == "o1o2o1") {
+                    o1o2o1o3();
+                }
+                else if (stage == "o1o2o2") {
+                    o1o2o2o3();
+                }
+                else if (stage == "o1o2o3") {
+                    o1o2o3o3();
+                }
+                else if (stage == "o1o3o1") {
+                    o1o3o1o3();
+                }
                 else if (stage == "o1o3o2") {
                     drink();
+                }
+                else if (stage == "o1o3o3") {
+                    o1o3o3o3();
+                }
+                else if (stage == "o2o1o1") {
+                    o2o1o1o3();
+                }
+                else if (stage == "o2o1o2") {
+                    o2o1o2o3();
+                }
+                else if (stage == "o2o1o3") {
+                    o2o1o3o3();
+                }
+                else if (stage == "o2o3o1") {
+                    o2o3o1o3();
+                }
+                else if (stage == "o2o3o2") {
+                    o2o3o2o3();
+                }
+                else if (stage == "o2o3o3") {
+                    o2o3o3o3();
+                }
+                else if (stage == "o3o1o1") {
+                    o3o1o1o3();
+                }
+                else if (stage == "o3o1o2") {
+                    o3o1o2o3();
+                }
+                else if (stage == "o3o1o3") {
+                    o3o1o3o3();
+                }
+                else if (stage == "o3o2o1") {
+                    o3o2o1o3();
+                }
+                else if (stage == "o3o2o2") {
+                    o3o2o2o3();
+                }
+                else if (stage == "o3o2o3") {
+                    o3o2o3o3();
+                }
+                else if (stage == "o3o3o1") {
+                    o3o3o1o3();
+                }
+                else if (stage == "o3o3o2") {
+                    o3o3o2o3();
+                }
+                else if (stage == "o3o3o3") {
+                    o3o3o3o3();
                 }
                 else {
                     quit();
