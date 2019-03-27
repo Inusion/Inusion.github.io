@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="style.css">
+<head>
+    
+    <style>
+        .nou {
+            color: white;
+        }
+        .pause {
+            
+        }
+        #container {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background: black;
+        }
+        #centerAir {
+            position: absolute;
+            height: 79%;
+        }
+        #GroundLevel {
+            margin: auto;
+            position: absolute;
+            bottom: 19%;
+            width: 80%;
+            background: black;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <p class="nou">Input</p>
+        <div class="pause">
+            <p class="nou pause" id="thing1">|Paused|</p>
+            <button class="pause" id="thing2" onclick="frameCount()"></button>
+            <button class="pause" id="thing3" onclick="SetControlUp()"></button>
+            <button class="pause" id="thing4" onclick="SetControlLeft()"></button>
+            <button class="pause" id="thing5" onclick="SetControlDown()"></button>
+            <button class="pause" id="thing6" onclick="SetControlRight()"></button>
+        </div>
+        <div id="leftAir">
+    
+        </div>
+        <div id="centerAir">
+            <div id="GroundLevel">
+            </div>
+        </div>
+        <div id="rightAir">
+        
+        </div>
+        
+        <button id="yes" onkeydown="TheConsole(String.fromCharCode(event.keyCode))">Highlight this element to input into the console</button>
+    </div>
+    
+    <script type="text/javascript">
+        var frameData = 0;
+        var frameSpeed = 50;
+        var framesPerSecond = 20;
+        var noU = "";
+        var posX = 0;
+        var posY = 0;
+        var ControlUp = "W";
+        var ControlLeft = "A";
+        var ControlDown = "S";
+        var ControlRight = "D";
+        var Pause = "P";
+        var speed = 5;
+        var AirTime = 0;
+        var attack = 5;
+        var defense = 6;
+        var dexterity = 6;
+        var ground = 1;
+        var pause = false;
+        var paused = document.getElementById("pause");
+        var thing1 = document.getElementById("thing1");
+        var thing2 = document.getElementById("thing2");
+        var thing3 = document.getElementById("thing3");
+        var thing4 = document.getElementById("thing4");
+        var thing5 = document.getElementById("thing5");
+        var thing6 = document.getElementById("thing6");
+        var onKeyDownn = document.getElementById("yes");
+        var leetSauce = document.getElementById("nou");
+        paused.visibility = "hidden";
+        thing1.visibility = "hidden";
+        thing2.visibility = "hidden";
+        thing2.innerHTML = "Framerate: " + framesPerSecond;
+        thing3.visibility = "hidden";
+        thing3.innerHTML = "Up: " + ControlUp;
+        thing4.visibility = "hidden";
+        thing4.innerHTML = "Left: " + ControlLeft;
+        thing5.visibility = "hidden";
+        thing5.innerHTML = "Down: " + ControlDown;
+        thing6.visibility = "hidden";
+        thing6.innerHTML = "Right: " + ControlRight;
+        function frameCount() {
+            var ValueStored = framesPerSecond;
+            framesPerSecond = prompt("How many frames per second would you like?  (Minimum of 1, Maximum of 160): ");
+            framesPerSecond = parseInt(framesPerSecond);
+            if (framesPerSecond < 1) {
+                framesPerSecond = ValueStored;
+                alert("You idiot.");
+            }
+            else if (framesPerSecond > 160) {
+                framesPerSecond = ValueStored;
+                alert("You idiot.");
+            }
+            else {
+                var InterMediary = 1000/framesPerSecond;
+                frameSpeed = InterMediary;
+            }
+            thing2.innerHTML = "Framerate: " + framesPerSecond;
+        }
+        function frameUpdater() {
+            setInterval(frameUpdater(), frameSpeed);
+            frameData = frameData + 1;
+            
+        }
+        function pause() {
+            if (pause == true) {
+                pause = false
+                paused.visibility = "visible";
+                thing1.visibility = "visible";
+                thing2.visibility = "visible";
+                thing2.innerHTML = "Framerate: " + framesPerSecond;
+                thing3.visibility = "visible";
+                thing3.innerHTML = "Up: " + ControlUp;
+                thing4.visibility = "visible";
+                thing4.innerHTML = "Left: " + ControlLeft;
+                thing5.visibility = "visible";
+                thing5.innerHTML = "Down: " + ControlDown;
+                thing6.visibility = "visible";
+                thing6.innerHTML = "Right: " + ControlRight;
+            }
+            else if (pause == false) {
+                pause = true
+                paused.visibility = "hidden";
+                thing1.visibility = "hidden";
+                thing2.visibility = "hidden";
+                thing3.visibility = "hidden";
+                thing4.visibility = "hidden";
+                
+            }
+        }
+        function SetControlUp() {
+            var StoredMemory = ControlUp;
+            ControlUp = prompt("What would you like your Up Key to be (Capital Letters Only): ");
+            if (ControlUp == "A" || ControlUp == "B" || ControlUp == "C" || ControlUp == "D" || ControlUp == "E" || ControlUp == "F" || ControlUp == "G" || ControlUp == "H" || ControlUp == "I" || ControlUp == "J" || ControlUp == "K" || ControlUp == "L" || ControlUp == "M" || ControlUp == "N" || ControlUp == "O" || ControlUp == "P" || ControlUp == "Q" || ControlUp == "R" || ControlUp == "S" || ControlUp == "T" || ControlUp == "U" || ControlUp == "V" || ControlUp == "W" || ControlUp == "X" || ControlUp == "Y" || ControlUp == "Z") {
+                thing3.innerHTML = "Up: " + ControlUp;
+            }
+            else {
+                alert("Idiot.");
+                ControlUp = StoredMemory;
+            }
+        }
+        function SetControlLeft() {
+            var StoredMemory = ControlLeft;
+            ControlLeft = prompt("What would you like your Down Key to be (Capital Letters Only): ");
+            if (ControlLeft == "A" || ControlLeft == "B" || ControlLeft == "C" || ControlLeft == "D" || ControlLeft == "E" || ControlLeft == "F" || ControlLeft == "G" || ControlLeft == "H" || ControlLeft == "I" || ControlLeft == "J" || ControlLeft == "K" || ControlLeft == "L" || ControlLeft == "M" || ControlLeft == "N" || ControlLeft == "O" || ControlLeft == "P" || ControlLeft == "Q" || ControlLeft == "R" || ControlLeft == "S" || ControlLeft == "T" || ControlLeft == "U" || ControlLeft == "V" || ControlLeft == "W" || ControlLeft == "X" || ControlLeft == "Y" || ControlLeft == "Z") {
+                thing4.innerHTML = "Left: " + ControlLeft;
+            }
+            else {
+                alert("Idiot.");
+                ControlLeft = StoredMemory;
+            }
+        }
+        function SetControlDown() {
+            var StoredMemory = ControlDown;
+            ControlDown = prompt("What would you like your Down Key to be (Capital Letters Only): ");
+            if (ControlDown == "A" || ControlDown == "B" || ControlDown == "C" || ControlDown == "D" || ControlDown == "E" || ControlDown == "F" || ControlDown == "G" || ControlDown == "H" || ControlDown == "I" || ControlDown == "J" || ControlDown == "K" || ControlDown == "L" || ControlDown == "M" || ControlDown == "N" || ControlDown == "O" || ControlDown == "P" || ControlDown == "Q" || ControlDown == "R" || ControlDown == "S" || ControlDown == "T" || ControlDown == "U" || ControlDown == "V" || ControlDown == "W" || ControlDown == "X" || ControlDown == "Y" || ControlDown == "Z") {
+                thing5.innerHTML = "Down: " + ControlDown;
+            }
+            else {
+                alert("Idiot.");
+                ControlDown = StoredMemory;
+            }
+        }
+        function SetControlRight() {
+            var StoredMemory = ControlRight;
+            ControlRight = prompt("What would you like your Right Key to be (Capital Letters Only): ");
+            if (ControlRight == "A" || ControlRight == "B" || ControlRight == "C" || ControlRight == "D" || ControlRight == "E" || ControlRight == "F" || ControlRight == "G" || ControlRight == "H" || ControlRight == "I" || ControlRight == "J" || ControlRight == "K" || ControlRight == "L" || ControlRight == "M" || ControlRight == "N" || ControlRight == "O" || ControlRight == "P" || ControlRight == "Q" || ControlRight == "R" || ControlRight == "S" || ControlRight == "T" || ControlRight == "U" || ControlRight == "V" || ControlRight == "W" || ControlRight == "X" || ControlRight == "Y" || ControlRight == "Z") {
+                thing6.innerHTML = "Right: " + ControlRight;
+            }
+            else {
+                alert("Idiot.");
+                ControlRight = StoredMemory;
+            }
+        }
+        function TheConsole(UserInput) {
+            leetSauce.innerHTML = UserInput;
+            if (UserInput == ControlUp) {
+                if (ground == 0) {
+                    AirJump();
+                }
+                else if (ground == 1) {
+                    jump();
+                }
+            }
+            else if (UserInput == ControlDown) {
+                if (ground == 0) {
+                    FastFall();
+                }
+                else if (ground == 1) {
+                    crouch();
+                }
+            }
+            else if (UserInput == ControlLeft) {
+                if (ground == 1) {
+                    MoveLeftOnPlatform();
+                }
+                else if (ground == 0) {
+                    MoveLeftInAir();
+                }
+            }
+            else if (UserInput == ControlRight) {
+                if (ground == 1) {
+                    MoveRightOnPlatform();
+                }
+                else if (ground == 0) {
+                    MoveRightInAir();
+                }
+            }
+            else if (UserInput == Pause) {
+                pause();
+            }
+        }
+        function FastFall() {
+            if (posX !== 100) {
+            }
+        }
+        function jump() {
+            
+        }
+        function AirJump() {
+            
+        }
+        function MoveLeftOnPlatform() {
+            if (posX <= 0) {
+                death();
+            }
+            else {
+                posX = posX - speed;
+            }
+        }
+        function MoveRightOnPlatform() {
+            if (posX >= 500) {
+                death();
+            }
+            else {
+                posX = posX + speed;
+            }
+        }
+        function MoveLeftInAir() {
+        }
+        function MoveRightInAir() {
+        }
+        function death() {
+        }
+        function crouch() {
+            
+        }
+    </script>
+</body>

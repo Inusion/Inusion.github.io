@@ -42,7 +42,7 @@
                 filter: alpha(opacity=50);
             }
             img:hover {
-                opacity: 1.0;
+                opacity: 0.5;
                 filter: alpha(opacity=100);
             }
             #h1 {
@@ -51,7 +51,7 @@
             }
         </style>
     </head>
-    <body>
+    <body id="Hecc">
         <h3 class="col-sm-3 pull-left death">Jonathan Pellior</h3>
         <ul class="nav nav-pills pull-right">
           <li class="nav-item">
@@ -82,13 +82,38 @@
             </div>
             <div id="RightPane">
                 <div id="StoryCont">
-                    <h1>A Harrowing Tale of Heros</h1>
+                    <h1>A Harrowing Tale of Heroes</h1>
                     <p>===============================</p>
                     <p id="Money"></p>
                     <p>Inventory:</p>
                     <p id="Inv">None</p>
                     <p>===============================</p>
                     <p id="Story"></p>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
                 </div>
                 <div id="ButtonsCont">
                     <button class= "Yes" type="button" id="option1" onclick=stateCall1()>Press Any</button>
@@ -102,12 +127,18 @@
             //var option1ToF = 0;
             //var option2ToF = 0;
             //var option3ToF = 0;
+            var Body = document.getElementById("Hecc");
             var MoneyTxt = document.getElementById("Money");
             var InvTxt = document.getElementById("Inv");
             var o1Txt = document.getElementById("option1");
             var o2Txt = document.getElementById("option2");
             var o3Txt = document.getElementById("option3");
             var AttackTxt = document.getElementById("attackList");
+            var Container = document.getElementById("container");
+            var LeftPane = document.getElementById("LeftPane");
+            var RightPane = document.getElementById("RightPane");
+            var ButtonsCont = document.getElementById("ButtonsCont");
+            var PEleText = document.getElementById("Story");
             var stage = "intro";
             var copper = 30;
             var silver = 0;
@@ -116,14 +147,13 @@
             var inventory2 = "";
             var inventory3 = "";
             var inventory4 = "";
-            var PEleText = document.getElementById("Story");
             var Drunk = 0;
+            var black= "";
             MoneyTxt.innerHTML = copper + "cp " + silver + "sp " + gold + "gp";
             AttackTxt.style.display = "none";
             function inventoryPrint() {
                 var inv = inventory1 + inventory2 + inventory3 + inventory4;
                 InvTxt.innerHTML = inv;
-                inventoryPrint();
             }
             function attackPrint() {
                 
@@ -209,17 +239,97 @@
                 o2Txt.innerHTML = "Press Any";
                 o3Txt.innerHTML = "Press Any";
                 stage = "intro";
+                RGB2HTML(255, 255, 255);
             }
-            function drink() {
-                Drunk = Drunk + 1;
+            function drink(add) {
+                Drunk = Drunk + add;
                 PEleText.innerHTML = "You drink more, and more and more. Drunkness: " + Drunk;
                 o1Txt.innerHTML = "Drink";
                 o2Txt.innerHTML = "Drink";
                 o3Txt.innerHTML = "Drink";
-                if (Drunk > 100) {
+                if (Drunk > 1000) {
+                    Drunk = 0;
                     quit();
                 }
+                else if (Drunk == 0) {
+                    RGB2HTML(255, 255, 255);
+                }
+                else if (Drunk == 5) {
+                    RGB2HTML(243, 243, 243);
+                }
+                else if (Drunk == 10) {
+                    RGB2HTML(230, 230, 230);
+                }
+                else if (Drunk == 15) {
+                    RGB2HTML(217, 217, 217);
+                }
+                else if (Drunk == 20) {
+                    RGB2HTML(204, 204, 204);
+                }
+                else if (Drunk == 25) {
+                    RGB2HTML(192, 192, 192);
+                }
+                else if (Drunk == 30) {
+                    RGB2HTML(179, 179, 179);
+                }
+                else if (Drunk == 35) {
+                    RGB2HTML(166, 166, 166);
+                }
+                else if (Drunk == 40) {
+                    RGB2HTML(153, 153, 153);
+                }
+                else if (Drunk == 45) {
+                    RGB2HTML(141, 141, 141);
+                }
+                else if (Drunk == 50) {
+                    RGB2HTML(128, 128, 128);
+                }
+                else if (Drunk == 55) {
+                    RGB2HTML(115, 115, 115);
+                }
+                else if (Drunk == 60) {
+                    RGB2HTML(102, 102, 102);
+                }
+                else if (Drunk == 65) {
+                    RGB2HTML(90, 90, 90);
+                }
+                else if (Drunk == 70) {
+                    RGB2HTML(77, 77, 77);
+                }
+                else if (Drunk == 75) {
+                    RGB2HTML(64, 64, 64);
+                }
+                else if (Drunk == 80) {
+                    RGB2HTML(51, 51, 51);
+                }
+                else if (Drunk == 85) {
+                    RGB2HTML(39, 39, 39);
+                }
+                else if (Drunk == 90) {
+                    RGB2HTML(26, 26, 26);
+                }
+                else if (Drunk == 95) {
+                    RGB2HTML(13, 13, 13);
+                }
+                else if (Drunk == 100) {
+                    RGB2HTML(0, 0, 0);
+                }
             }
+            function RGB2HTML(red, green, blue) {
+                var decColor =0x1000000+ blue + 0x100 * green + 0x10000 *red ;
+                black = '#'+decColor.toString(16).substr(1);
+                Container.style.backgroundColor = black;
+                LeftPane.style.backgroundColor = black;
+                RightPane.style.backgroundColor = black;
+                PEleText.style.backgroundColor = black;
+                ButtonsCont.style.backgroundColor = black;
+                Body.style.backgroundColor = black;
+                var leetSauce = 0;
+                if (leetSauce == 1) {
+                    attackPrint();
+                }
+            }
+            
             //These are the functions that get called through the directory
             function o1() {
                 PEleText.innerHTML = "You take a seat at one of the tables near the back of the inn, and you order a drink.  You're seated in the perfect spot to watch the bard finish his act.  After he finished, he accepted donations, and walked offstage.  You remember the times you once did the same as he.";
@@ -737,9 +847,9 @@
                 stage = "o2o3o3o2";
             }
             function o3o1o1o2() {
-                PEleText.innerHTML = "";
-                o1Txt.innerHTML = "";
-                o2Txt.innerHTML = "";
+                PEleText.innerHTML = "You go to the back door, of which the guards entered, and notice it is unlocked.  You are greeted with a long hallway with old, dusty cells lining the walls.  You notice a rusty iron bar that is loose.  Yu see a moldy wooden door, with a grate at the end of the hallway.";
+                o1Txt.innerHTML = "Grab Bar";
+                o2Txt.innerHTML = "Go to Door";
                 o3Txt.innerHTML = "";
                 stage = "o3o1o1o2";
             }
@@ -991,7 +1101,7 @@
                     o2o1o1();
                 }
                 else if (stage == "o2o2") {
-                    drink();
+                    drink(1);
                 }
                 else if (stage == "o2o3") {
                     o2o3o1();
@@ -1027,7 +1137,7 @@
                     o1o3o1o1();
                 }
                 else if (stage == "o1o3o2") {
-                    drink();
+                    drink(1);
                 }
                 else if (stage == "o1o3o3") {
                     o1o3o3o1();
@@ -1111,7 +1221,7 @@
                     o2o1o2();
                 }
                 else if (stage == "o2o2") {
-                    drink();
+                    drink(5);
                 }
                 else if (stage == "o2o3") {
                     o2o3o2();
@@ -1147,7 +1257,7 @@
                     o1o3o1o2();
                 }
                 else if (stage == "o1o3o2") {
-                    drink();
+                    drink(5);
                 }
                 else if (stage == "o1o3o3") {
                     o1o3o3o2();
@@ -1231,7 +1341,7 @@
                     o2o1o3();
                 }
                 else if (stage == "o2o2") {
-                    drink();
+                    drink(10);
                 }
                 else if (stage == "o2o3") {
                     o2o3o3();
@@ -1267,7 +1377,7 @@
                     o1o3o1o3();
                 }
                 else if (stage == "o1o3o2") {
-                    drink();
+                    drink(10);
                 }
                 else if (stage == "o1o3o3") {
                     o1o3o3o3();
